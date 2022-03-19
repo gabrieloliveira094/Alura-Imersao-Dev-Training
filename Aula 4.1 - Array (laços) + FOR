@@ -1,0 +1,25 @@
+JS:
+//Criando um Array:
+var listaFilmes = ["Yesterday", "A Chegada", "Escola de Rock"];
+// elemento             1º           2º               3º
+// índice             [0]           [1]               [2]
+//Adicionando um item ao final da lista:
+listaFilmes.push("Harry Potter");
+
+//Imprimir na tela a lista de forma separada. Se eu nao colocar [], ele irá adicionar toda a lista como uma linha junto.
+//document.write("<p>" + listaFilmes[0] + "</p>");
+//document.write("<p>" + listaFilmes[1] + "</p>");
+//document.write("<p>" + listaFilmes[2] + "</p>");
+//document.write("<p>" + listaFilmes[3] + "</p>");
+
+//   valor inicial                 condicao      expressão final
+for (var indice = 0; indice < listaFilmes.length; indice++) {
+  document.write("<p>" + listaFilmes[indice] + "</p>");
+}
+
+CSS:
+p {
+  text-align: center;
+  font-size: 42px;
+}
+
