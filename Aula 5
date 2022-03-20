@@ -1,0 +1,131 @@
+JS
+function adicionarFilme() {
+  var filmeFavorito = document.getElementById("filme").value;
+  if (filmeFavorito.endsWith(".jpg")) {
+    listarFilmesNaTela(filmeFavorito);
+  } else {
+    console.error("Endereço de Filme inválido");
+  }
+  document.getElementById("filme").value = "";
+}
+
+function listarFilmesNaTela(filme) {
+  console.log(filme);
+  var elementoFilmeFavorito = "<img src=" + filme + ">";
+  var elementoListaFilmes = document.getElementById("listaFilmes");
+  elementoListaFilmes.innerHTML =
+    elementoListaFilmes.innerHTML + elementoFilmeFavorito;
+}
+//Lin.2 = estou buscando o elemento filme do meu HTML e transformando ele em uma variável. Ou seja, estou "pegando" o valor da imagem
+//Lin.3 = vou garantir que meu usuário sempre suba um link com .jpg no final, ou seja, que seja uma imagem, utilizando o "endsWith", ou seja, link termina com...
+//Lin.4 = estou criando um repositório da variável filme favorito para ser "chamada" na função listarFilmesNaTela
+//Lin.5 = agora quero retornar um erro para o usuário, informando que ele adicionou um link que não é imagem, ou seja, nao termina com .jpg.
+//Lin.8 = depois que meu usuário adicionar um dado no campo, vou apagar todos os dados do campo filme do HTML para o campo ficar vazio de novo. E eu sempre coloco fora do If, pois dando certo ou não, eu vou limpar meu campo.
+
+//Lin.11 = estou criando uma nova função chamada listarFilmesNaTela da qual eu já criei um repositório pra ela. Dentro do parênteses, eu vou dar um novo nove para o valor que eu estou pegando do repositório.
+//Lin.13 = estou pegando um link que será adicionado no campo do site e colocando ele em um campo de imagem do HTML
+//Lin.14 = estou pegando todas as entradas do usuário e colocando em uma nova variável para listá-los.
+//Lin. 15 e 16 = aqui eu faço uma adição para fazer com que o valor de filme favorito nao seja substituido por uma nova entrada, e sim adicionado. Com isso, deixo de ter apenas um resultado para ter uma lista.
+
+
+
+HTML:
+<html>
+
+<head>
+  <title>
+    Imersão Dev - Aula 05
+  </title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="page-title">
+      Aluraflix
+    </h1>
+    <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-aluraflix.svg" class="page-logo" alt="">
+    <p class="page-subtitle">
+      Qual seu filme favorito?
+    </p>
+    <div class="form-wrapper">
+      <input type="text" id="filme" name="filme" placeholder="Insira endereço de imagem">
+      <button onClick="adicionarFilme()">Adicionar Filme</button>
+    </div>
+  </div>
+  <div id="listaFilmes"></div>
+  <a href="https://alura.com.br/" target="_blank">
+    <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="" class="alura-logo">
+  </a>
+</body>
+
+</html>
+
+
+CSS:
+body {
+  font-family: "Roboto Mono", monospace;
+  text-align: center;
+  background-image: url("https://www.alura.com.br/assets/img/imersoes/dev-2021/dia-04-aluraflix-e-filmes.png");
+  background-color: #000000;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.page-title {
+  color: #ffffff;
+  margin: 0 0 5px;
+}
+
+.page-subtitle {
+  color: #ffffff;
+  margin-top: 5px;
+}
+
+.page-logo {
+  width: 200px;
+}
+
+.alura-logo {
+  width: 40px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#listaFilmes img {
+  margin: 10px;
+  max-height: 250px;
+}
+
+.form-wrapper {
+  margin: 0 0 15px;
+}
+
+.form-wrapper input {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 15px;
+}
+
+.form-wrapper button {
+  border: 0;
+  color: #ffffff;
+  background: #da1e26;
+  font-weight: bold;
+  padding: 15px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-wrapper button:hover {
+  opacity: 0.8;
+}
